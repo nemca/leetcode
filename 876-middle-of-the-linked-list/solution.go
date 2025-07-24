@@ -29,3 +29,14 @@ func middleNode(head *models.ListNode) *models.ListNode {
 
 	return ll[mid]
 }
+
+func middleNode2(head *models.ListNode) *models.ListNode {
+	slow, fast := head, head
+
+	for fast != nil && fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+	}
+
+	return slow
+}
