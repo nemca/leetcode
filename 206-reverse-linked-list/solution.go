@@ -1,16 +1,13 @@
 package reverse_linked_list
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import "github.com/nemca/leetcode/models"
 
-func reverseList(head *ListNode) *ListNode {
+func reverseList(head *models.ListNode) *models.ListNode {
 	if head == nil {
 		return nil
 	}
 
-	var prev *ListNode
+	var prev *models.ListNode
 	curr := head
 
 	for curr != nil {

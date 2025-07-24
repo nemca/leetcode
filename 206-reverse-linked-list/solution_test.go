@@ -3,31 +3,32 @@ package reverse_linked_list
 import (
 	"testing"
 
+	"github.com/nemca/leetcode/models"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestReverseList(t *testing.T) {
 	type args struct {
-		head *ListNode
+		head *models.ListNode
 	}
 
 	tests := []struct {
 		name string
 		args args
-		want *ListNode
+		want *models.ListNode
 	}{
 		{
 			name: "example 1",
 			args: args{
-				head: &ListNode{
+				head: &models.ListNode{
 					Val: 1,
-					Next: &ListNode{
+					Next: &models.ListNode{
 						Val: 2,
-						Next: &ListNode{
+						Next: &models.ListNode{
 							Val: 3,
-							Next: &ListNode{
+							Next: &models.ListNode{
 								Val: 4,
-								Next: &ListNode{
+								Next: &models.ListNode{
 									Val:  5,
 									Next: nil,
 								},
@@ -36,15 +37,15 @@ func TestReverseList(t *testing.T) {
 					},
 				},
 			},
-			want: &ListNode{
+			want: &models.ListNode{
 				Val: 5,
-				Next: &ListNode{
+				Next: &models.ListNode{
 					Val: 4,
-					Next: &ListNode{
+					Next: &models.ListNode{
 						Val: 3,
-						Next: &ListNode{
+						Next: &models.ListNode{
 							Val: 2,
-							Next: &ListNode{
+							Next: &models.ListNode{
 								Val:  1,
 								Next: nil,
 							},
@@ -56,17 +57,17 @@ func TestReverseList(t *testing.T) {
 		{
 			name: "example 2",
 			args: args{
-				head: &ListNode{
+				head: &models.ListNode{
 					Val: 1,
-					Next: &ListNode{
+					Next: &models.ListNode{
 						Val:  2,
 						Next: nil,
 					},
 				},
 			},
-			want: &ListNode{
+			want: &models.ListNode{
 				Val: 2,
-				Next: &ListNode{
+				Next: &models.ListNode{
 					Val:  1,
 					Next: nil,
 				},
