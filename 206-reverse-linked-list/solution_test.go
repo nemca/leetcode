@@ -3,75 +3,33 @@ package reverse_linked_list
 import (
 	"testing"
 
-	"github.com/nemca/leetcode/models"
+	. "github.com/nemca/leetcode/models"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestReverseList(t *testing.T) {
 	type args struct {
-		head *models.ListNode
+		head *ListNode
 	}
 
 	tests := []struct {
 		name string
 		args args
-		want *models.ListNode
+		want *ListNode
 	}{
 		{
 			name: "example 1",
 			args: args{
-				head: &models.ListNode{
-					Val: 1,
-					Next: &models.ListNode{
-						Val: 2,
-						Next: &models.ListNode{
-							Val: 3,
-							Next: &models.ListNode{
-								Val: 4,
-								Next: &models.ListNode{
-									Val:  5,
-									Next: nil,
-								},
-							},
-						},
-					},
-				},
+				head: MakeSingleLinkedList([]int{1, 2, 3, 4, 5}),
 			},
-			want: &models.ListNode{
-				Val: 5,
-				Next: &models.ListNode{
-					Val: 4,
-					Next: &models.ListNode{
-						Val: 3,
-						Next: &models.ListNode{
-							Val: 2,
-							Next: &models.ListNode{
-								Val:  1,
-								Next: nil,
-							},
-						},
-					},
-				},
-			},
+			want: MakeSingleLinkedList([]int{5, 4, 3, 2, 1}),
 		},
 		{
 			name: "example 2",
 			args: args{
-				head: &models.ListNode{
-					Val: 1,
-					Next: &models.ListNode{
-						Val:  2,
-						Next: nil,
-					},
-				},
+				head: MakeSingleLinkedList([]int{1, 2}),
 			},
-			want: &models.ListNode{
-				Val: 2,
-				Next: &models.ListNode{
-					Val:  1,
-					Next: nil,
-				},
-			},
+			want: MakeSingleLinkedList([]int{2, 1}),
 		},
 		{
 			name: "example 3",
