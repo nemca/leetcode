@@ -23,3 +23,17 @@ func (l *ListNode) String() string {
 	sb.WriteString("]")
 	return sb.String()
 }
+
+// MakeSingleLinkedList generates single linjed list from slice of integers.
+func MakeSingleLinkedList(nums []int) *ListNode {
+	if len(nums) == 0 {
+		return nil
+	}
+	head := &ListNode{Val: nums[0]}
+	current := head
+	for _, val := range nums[1:] {
+		current.Next = &ListNode{Val: val}
+		current = current.Next
+	}
+	return head
+}
