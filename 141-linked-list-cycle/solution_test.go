@@ -3,31 +3,31 @@ package linked_list_cycle
 import (
 	"testing"
 
-	"github.com/nemca/leetcode/models"
+	. "github.com/nemca/leetcode/models"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestHasCycle(t *testing.T) {
 	type args struct {
-		head *models.ListNode
+		head *ListNode
 	}
 
-	zero := &models.ListNode{
+	zero := &ListNode{
 		Val:  0,
 		Next: nil,
 	}
 
-	two := &models.ListNode{
+	two := &ListNode{
 		Val:  2,
 		Next: zero,
 	}
 
-	three := &models.ListNode{
+	three := &ListNode{
 		Val:  3,
 		Next: two,
 	}
 
-	four := &models.ListNode{
+	four := &ListNode{
 		Val:  -4,
 		Next: two,
 	}
