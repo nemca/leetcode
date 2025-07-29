@@ -1,17 +1,17 @@
 package middle_of_the_linked_list
 
 import (
-	"github.com/nemca/leetcode/models"
+	. "github.com/nemca/leetcode/models"
 )
 
-func middleNode(head *models.ListNode) *models.ListNode {
+func middleNode(head *ListNode) *ListNode {
 	if head.Next == nil {
 		return head
 	}
 
 	count := 1
 	next := head
-	ll := make(map[int]*models.ListNode)
+	ll := make(map[int]*ListNode)
 
 	for next.Next != nil {
 		count++
@@ -30,7 +30,7 @@ func middleNode(head *models.ListNode) *models.ListNode {
 	return ll[mid]
 }
 
-func middleNode2(head *models.ListNode) *models.ListNode {
+func middleNode2(head *ListNode) *ListNode {
 	slow, fast := head, head
 
 	for fast != nil && fast.Next != nil {
