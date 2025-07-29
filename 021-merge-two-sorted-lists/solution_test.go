@@ -3,64 +3,28 @@ package merge_two_sorted_lists
 import (
 	"testing"
 
-	"github.com/nemca/leetcode/models"
+	. "github.com/nemca/leetcode/models"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestMergeTwoLists(t *testing.T) {
 	type args struct {
-		list1 *models.ListNode
-		list2 *models.ListNode
+		list1 *ListNode
+		list2 *ListNode
 	}
 
 	tests := []struct {
 		name string
 		args args
-		want *models.ListNode
+		want *ListNode
 	}{
 		{
 			name: "example 1",
 			args: args{
-				list1: &models.ListNode{
-					Val: 1,
-					Next: &models.ListNode{
-						Val: 2,
-						Next: &models.ListNode{
-							Val:  4,
-							Next: nil,
-						},
-					},
-				},
-				list2: &models.ListNode{
-					Val: 1,
-					Next: &models.ListNode{
-						Val: 3,
-						Next: &models.ListNode{
-							Val:  4,
-							Next: nil,
-						},
-					},
-				},
+				list1: MakeSingleLinkedList([]int{1, 2, 4}),
+				list2: MakeSingleLinkedList([]int{1, 3, 4}),
 			},
-			want: &models.ListNode{
-				Val: 1,
-				Next: &models.ListNode{
-					Val: 1,
-					Next: &models.ListNode{
-						Val: 2,
-						Next: &models.ListNode{
-							Val: 3,
-							Next: &models.ListNode{
-								Val: 4,
-								Next: &models.ListNode{
-									Val:  4,
-									Next: nil,
-								},
-							},
-						},
-					},
-				},
-			},
+			want: MakeSingleLinkedList([]int{1, 1, 2, 3, 4, 4}),
 		},
 		{
 			name: "example 2",
@@ -74,15 +38,9 @@ func TestMergeTwoLists(t *testing.T) {
 			name: "example 3",
 			args: args{
 				list1: nil,
-				list2: &models.ListNode{
-					Val:  0,
-					Next: nil,
-				},
+				list2: MakeSingleLinkedList([]int{0}),
 			},
-			want: &models.ListNode{
-				Val:  0,
-				Next: nil,
-			},
+			want: MakeSingleLinkedList([]int{0}),
 		},
 	}
 

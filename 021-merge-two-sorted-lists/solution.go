@@ -1,11 +1,11 @@
 package merge_two_sorted_lists
 
 import (
-	"github.com/nemca/leetcode/models"
+	. "github.com/nemca/leetcode/models"
 )
 
-func mergeTwoLists(list1 *models.ListNode, list2 *models.ListNode) *models.ListNode {
-	dummy := &models.ListNode{}
+func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
+	dummy := &ListNode{}
 	tail := dummy
 
 	for list1 != nil && list2 != nil {
