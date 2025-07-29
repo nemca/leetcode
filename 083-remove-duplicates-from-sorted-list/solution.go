@@ -1,10 +1,10 @@
 package remove_duplicates_from_sorted_list
 
 import (
-	"github.com/nemca/leetcode/models"
+	. "github.com/nemca/leetcode/models"
 )
 
-func deleteDuplicates(head *models.ListNode) *models.ListNode {
+func deleteDuplicates(head *ListNode) *ListNode {
 	curr := head
 
 	for curr != nil && curr.Next != nil {

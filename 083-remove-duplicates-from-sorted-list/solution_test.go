@@ -3,111 +3,54 @@ package remove_duplicates_from_sorted_list
 import (
 	"testing"
 
-	"github.com/nemca/leetcode/models"
+	. "github.com/nemca/leetcode/models"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestDeleteDuplicates(t *testing.T) {
 	type args struct {
-		head *models.ListNode
+		head *ListNode
 	}
 
 	tests := []struct {
 		name string
 		args args
-		want *models.ListNode
+		want *ListNode
 	}{
 		{
 			name: "example 1",
 			args: args{
-				head: &models.ListNode{
-					Val: 1,
-					Next: &models.ListNode{
-						Val: 1,
-						Next: &models.ListNode{
-							Val:  2,
-							Next: nil,
-						},
-					},
-				},
+				head: MakeSingleLinkedList([]int{1, 1, 2}),
 			},
-			want: &models.ListNode{
-				Val: 1,
-				Next: &models.ListNode{
-					Val:  2,
-					Next: nil,
-				},
-			},
+			want: MakeSingleLinkedList([]int{1, 2}),
 		},
 		{
 			name: "example 2",
 			args: args{
-				head: &models.ListNode{
-					Val: 1,
-					Next: &models.ListNode{
-						Val: 1,
-						Next: &models.ListNode{
-							Val: 2,
-							Next: &models.ListNode{
-								Val: 3,
-								Next: &models.ListNode{
-									Val:  3,
-									Next: nil,
-								},
-							},
-						},
-					},
-				},
+				head: MakeSingleLinkedList([]int{1, 1, 2, 3, 3}),
 			},
-			want: &models.ListNode{
-				Val: 1,
-				Next: &models.ListNode{
-					Val: 2,
-					Next: &models.ListNode{
-						Val:  3,
-						Next: nil,
-					},
-				},
-			},
+			want: MakeSingleLinkedList([]int{1, 2, 3}),
 		},
 		{
 			name: "example 3",
 			args: args{
-				head: &models.ListNode{
-					Val: 1,
-					Next: &models.ListNode{
-						Val: 1,
-						Next: &models.ListNode{
-							Val:  1,
-							Next: nil,
-						},
-					},
-				},
+				head: MakeSingleLinkedList([]int{1, 1, 1}),
 			},
-			want: &models.ListNode{
-				Val:  1,
-				Next: nil,
-			},
+			want: MakeSingleLinkedList([]int{1}),
 		},
 		{
 			name: "empty list",
 			args: args{
-				head: nil,
+				head: MakeSingleLinkedList([]int{}),
 			},
-			want: nil,
+			want: MakeSingleLinkedList([]int{}),
 		},
 		{
 			name: "single list node",
 			args: args{
-				head: &models.ListNode{
-					Val:  1,
-					Next: nil,
-				},
+				head: MakeSingleLinkedList([]int{1}),
 			},
-			want: &models.ListNode{
-				Val:  1,
-				Next: nil,
-			},
+			want: MakeSingleLinkedList([]int{1}),
 		},
 	}
 
