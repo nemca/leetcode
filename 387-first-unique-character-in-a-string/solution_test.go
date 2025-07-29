@@ -43,6 +43,7 @@ func Test(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			assert.Equal(t, tt.want, firstUniqChar(tt.args.s))
 			assert.Equal(t, tt.want, firstUniqChar2(tt.args.s))
+			assert.Equal(t, tt.want, firstUniqChar3(tt.args.s))
 		})
 	}
 }

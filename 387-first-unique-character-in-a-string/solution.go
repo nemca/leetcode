@@ -44,3 +44,22 @@ func firstUniqChar2(s string) int {
 
 	return -1
 }
+
+func firstUniqChar3(s string) int {
+	var count = make([]int, 26)
+	n := len(s)
+
+	for i := 0; i < n; i++ {
+		if count[s[i]-'a'] < 2 {
+			count[s[i]-'a']++
+		}
+	}
+
+	for i := 0; i < n; i++ {
+		if count[s[i]-'a'] == 1 {
+			return i
+		}
+	}
+
+	return -1
+}
