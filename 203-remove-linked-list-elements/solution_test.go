@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/nemca/leetcode/models"
+	. "github.com/nemca/leetcode/models"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -21,46 +22,10 @@ func TestRemoveElements(t *testing.T) {
 		{
 			name: "example 1",
 			args: args{
-				head: &models.ListNode{
-					Val: 1,
-					Next: &models.ListNode{
-						Val: 2,
-						Next: &models.ListNode{
-							Val: 6,
-							Next: &models.ListNode{
-								Val: 3,
-								Next: &models.ListNode{
-									Val: 4,
-									Next: &models.ListNode{
-										Val: 5,
-										Next: &models.ListNode{
-											Val:  6,
-											Next: nil,
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-				val: 6,
+				head: MakeSingleLinkedList([]int{1, 2, 6, 3, 4, 5, 6}),
+				val:  6,
 			},
-			want: &models.ListNode{
-				Val: 1,
-				Next: &models.ListNode{
-					Val: 2,
-					Next: &models.ListNode{
-						Val: 3,
-						Next: &models.ListNode{
-							Val: 4,
-							Next: &models.ListNode{
-								Val:  5,
-								Next: nil,
-							},
-						},
-					},
-				},
-			},
+			want: MakeSingleLinkedList([]int{1, 2, 3, 4, 5}),
 		},
 		{
 			name: "example 2",
@@ -73,20 +38,8 @@ func TestRemoveElements(t *testing.T) {
 		{
 			name: "example 3",
 			args: args{
-				head: &models.ListNode{
-					Val: 7,
-					Next: &models.ListNode{
-						Val: 7,
-						Next: &models.ListNode{
-							Val: 7,
-							Next: &models.ListNode{
-								Val:  7,
-								Next: nil,
-							},
-						},
-					},
-				},
-				val: 7,
+				head: MakeSingleLinkedList([]int{7, 7, 7, 7}),
+				val:  7,
 			},
 			want: nil,
 		},
